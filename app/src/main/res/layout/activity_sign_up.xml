@@ -13,7 +13,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="450dp"
+        android:layout_height="390dp"
         android:orientation="vertical"
         android:id="@+id/ll1"
         android:layout_alignParentTop="true"
@@ -44,6 +44,7 @@
                android:layout_weight="4"
                android:layout_marginLeft="20dp"
                android:hint="Name"
+               android:backgroundTint="@android:color/holo_green_light"
                android:id="@+id/editText1"
                />
     </LinearLayout>
@@ -69,6 +70,7 @@
             android:layout_marginLeft="20dp"
             android:hint="Username"
             android:id="@+id/editText2"
+            android:backgroundTint="@android:color/holo_green_light"
             />
     </LinearLayout>
 
@@ -94,6 +96,8 @@
                 android:layout_marginLeft="20dp"
                 android:hint="Password"
                 android:id="@+id/editText3"
+                android:backgroundTint="@android:color/holo_green_light"
+                android:inputType="textPassword"
                 />
         </LinearLayout>
 
@@ -120,6 +124,7 @@
                 android:layout_marginLeft="20dp"
                 android:hint="Email id"
                 android:id="@+id/editText4"
+                android:backgroundTint="@android:color/holo_green_light"
                 />
         </LinearLayout>
         <LinearLayout
@@ -144,16 +149,35 @@
                 android:layout_marginLeft="20dp"
                 android:hint="Mobile no"
                 android:id="@+id/editText5"
+                android:backgroundTint="@android:color/holo_green_light"
                 />
         </LinearLayout>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:layout_below="@+id/ll1"
+            >
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:layout_below="@+id/l5"
             android:textColor="#FFFFFF"
             android:text="SignUp"
             android:onClick="signup"
+            android:layout_weight="1"
+            android:background="#FF6F00"
+            />
+
+        <Button
+            android:layout_marginLeft="10dp"
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:textColor="#FFFFFF"
+            android:text="Back To Login"
+            android:onClick="backtologin"
             android:background="#FF6F00"
             />
     </LinearLayout>

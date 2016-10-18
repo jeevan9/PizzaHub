@@ -128,8 +128,10 @@ public class NavigationActivity extends AppCompatActivity
             startActivity(i);
         }
         else if (id == R.id.logout) {
+            finish();
             Intent i=new Intent(this,MainActivity.class);
             startActivity(i);
+
         }
 
         else if (id == R.id.nav_share) {

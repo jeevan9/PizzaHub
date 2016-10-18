@@ -1,6 +1,7 @@
 package com.example.pizzahub;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -52,6 +53,7 @@ public class PasswordSetActivity extends AppCompatActivity {
         }
         else
         {
+            flag=1;
             if (otp1.equals("") || otp1.length() == 0) {
                 flag = 1;
                 Toast.makeText(this, "Please Enter username", Toast.LENGTH_SHORT).show();
@@ -62,8 +64,21 @@ public class PasswordSetActivity extends AppCompatActivity {
 
             }
         }
+        /*if(flag!=1)
+        {
+            SharedPreferences pref = getApplicationContext().getSharedPreferences("MyPref", MODE_PRIVATE);
+            SharedPreferences.Editor editor = pref.edit();
+
+            // getting String
+            String message = pref.getString("key_name5", null);
+            if(otp1.equals(message))
+            {
+                String
+            }
+
+        }*/
+        }
 
     }
 
 
-}

@@ -17,10 +17,17 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        count++;
-        if(count>1)
-            finish();
     }
+
+    public void onBackPressed() {
+    finish();
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        }
+
     public void login(View v)
     {
         t1=(EditText)findViewById(R.id.editText1);

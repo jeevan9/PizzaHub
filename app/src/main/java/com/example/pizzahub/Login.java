@@ -15,8 +15,11 @@ import org.json.JSONObject;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.widget.Toast;
+
+import static android.content.Context.MODE_PRIVATE;
 
 public class  Login extends AsyncTask<String,Void,String>{
     private Context context;
@@ -78,7 +81,6 @@ public class  Login extends AsyncTask<String,Void,String>{
         if(res[0].equals("Welcome"))
         {
             context.startActivity(new Intent(context, NavigationActivity.class));
-
         }
 
     }
