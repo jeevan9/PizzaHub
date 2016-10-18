@@ -96,13 +96,19 @@ public class SetPassword extends AsyncTask<String,Void,String> {
                 smsOperation.sendTextMessage(res[1], null, messageToSend, sentPI, null);
 
                 Toast.makeText(context, "SMS Sent Seuccessfully ", Toast.LENGTH_SHORT).show();
-                SharedPreferences pref = context.getSharedPreferences("MyPref", MODE_PRIVATE);
+                Intent i=new Intent(context,OTPVerificationActivity.class);
+                i.putExtra("uname",userid);
+                i.putExtra("otp",res[0]);
+                context.startActivity(i);
+                /*SharedPreferences pref = context.getSharedPreferences("MyPref", MODE_PRIVATE);
                 SharedPreferences.Editor editor = pref.edit();
 
                 // Saving string
+                editor.putString("username",userid);
                 editor.putString("key_name5",res[0]);
+
                 editor.commit();
-                // SmsManager.getDefault().sendTextMessage(number, null, messageToSend, null,null);
+               */ // SmsManager.getDefault().sendTextMessage(number, null, messageToSend, null,null);
             } catch (Exception e) {
                 e.toString();
                 Toast.makeText(context, e + "  Message Not Delivered ", Toast.LENGTH_SHORT).show();

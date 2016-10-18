@@ -25,6 +25,7 @@ public class SignUp extends AsyncTask<String,Void,String>{
 
     @Override
     protected void onPreExecute() {
+        loading=ProgressDialog.show(context, "Please Wait","Loading", true, true);
         super.onPreExecute();
     }
 
@@ -69,6 +70,7 @@ public class SignUp extends AsyncTask<String,Void,String>{
 
     @Override
     protected void onPostExecute(String s) {
+        loading.dismiss();
         super.onPostExecute(s);
         Toast.makeText(context,s, Toast.LENGTH_SHORT).show();
     }

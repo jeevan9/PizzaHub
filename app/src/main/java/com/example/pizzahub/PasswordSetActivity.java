@@ -37,16 +37,16 @@ public class PasswordSetActivity extends AppCompatActivity {
         Intent i=new Intent(this,MainActivity.class);
         startActivity(i);
     }
-    public void resetpassword(View v)
-    {
-        t1= (EditText) findViewById(R.id.editText1);
-        t2= (EditText) findViewById(R.id.editText2);
-        t3= (EditText) findViewById(R.id.editText3);
-        String userid=t1.getText().toString();
-        String otp1=t2.getText().toString();
-        String newp=t3.getText().toString();
-        int flag=0;
-        if((otp1.equals("")||otp1.length()==0)&&newp.length()==0)
+
+   /* public void resetpassword(View v) {
+        t1 = (EditText) findViewById(R.id.editText1);
+        t2 = (EditText) findViewById(R.id.editText2);
+        t3 = (EditText) findViewById(R.id.editText3);
+        String userid = t1.getText().toString();
+        String otp1 = t2.getText().toString();
+        String newp = t3.getText().toString();
+        int flag = 0;
+       if((otp1.equals("")||otp1.length()==0)&&newp.length()==0)
         {
             flag=1;
             Toast.makeText(this,"Please Enter OTP and New Password",Toast.LENGTH_SHORT).show();
@@ -64,20 +64,33 @@ public class PasswordSetActivity extends AppCompatActivity {
 
             }
         }
-        /*if(flag!=1)
-        {
-            SharedPreferences pref = getApplicationContext().getSharedPreferences("MyPref", MODE_PRIVATE);
+
+        if (otp1.equals("") || otp1.length() == 0) {
+            flag = 1;
+            Toast.makeText(this, "Please Enter OTP", Toast.LENGTH_SHORT).show();
+        }
+        //if(flag!=1)
+        //{
+            /*SharedPreferences pref = getApplicationContext().getSharedPreferences("MyPref", MODE_PRIVATE);
             SharedPreferences.Editor editor = pref.edit();
 
             // getting String
-            String message = pref.getString("key_name5", null);
-            if(otp1.equals(message))
+            String onetp = pref.getString("key_name5", null);
+            String unam = pref.getString("username", null);
+
+            if(otp1.equals(onetp))
             {
-                String
+                String uname=unam;
+                OTPSetPassword p1=new OTPSetPassword(this);
+                p1.execute(uname,newp);
+            Intent i=new Intent(this,OTPVerificationActivity.class);
+            i.putExtra("uname",);
+            startActivity(i);
             }
 
-        }*/
         }
+
+    }*/
 
     }
 
