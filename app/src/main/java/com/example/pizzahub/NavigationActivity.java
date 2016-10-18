@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.DialogFragment;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -20,10 +22,15 @@ import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class NavigationActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
     ImageView im1;
     ImageView im2,im3,im4,im5;
+    private List<Pizza> pizzas;
+    private RecyclerView rv;
     //    Login l1=new Login();
     //  TextView nav_header_name,nav_header_mailid;
     /* public  NavigationActivity(String name,String mailid)
@@ -37,7 +44,7 @@ public class NavigationActivity extends AppCompatActivity
         setContentView(R.layout.activity_navigation);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        im1= (ImageView) findViewById(R.id.imageView1);
+       /* im1= (ImageView) findViewById(R.id.imageView1);
         im2= (ImageView) findViewById(R.id.imageView2);
         im3= (ImageView) findViewById(R.id.imageView3);
         im4= (ImageView) findViewById(R.id.imageView4);
@@ -47,9 +54,7 @@ public class NavigationActivity extends AppCompatActivity
         Picasso.with(getApplicationContext()).load("https://images-na.ssl-images-amazon.com/images/I/81RfxKAIXEL.png").into(im3);
         Picasso.with(getApplicationContext()).load("https://images-na.ssl-images-amazon.com/images/I/81RfxKAIXEL.png").into(im4);
         Picasso.with(getApplicationContext()).load("https://images-na.ssl-images-amazon.com/images/I/81RfxKAIXEL.png").into(im5);
-
-
-
+*/
         /*
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -73,6 +78,34 @@ public class NavigationActivity extends AppCompatActivity
         nav_header_name.setText(l1.name);
         nav_header_mailid.setText(l1.emailid);*/
 
+
+        rv=(RecyclerView)findViewById(R.id.rv);
+
+        LinearLayoutManager llm = new LinearLayoutManager(this);
+        rv.setLayoutManager(llm);
+        rv.setHasFixedSize(true);
+
+        initializeData();
+        initializeAdapter();
+
+
+    }
+
+    private void initializeData(){
+        pizzas = new ArrayList<>();
+        pizzas.add(new Pizza("Veg Pizza", R.drawable.pizza));
+        pizzas.add(new Pizza("Non-Veg Pizza", R.drawable.pizza));
+        pizzas.add(new Pizza("Beverages", R.drawable.pizza));
+        pizzas.add(new Pizza("Veg Pizza", R.drawable.pizza));
+        pizzas.add(new Pizza("Non-Veg Pizza", R.drawable.pizza));
+        pizzas.add(new Pizza("Beverages", R.drawable.pizza));
+
+
+    }
+
+    private void initializeAdapter(){
+        PizzaTypeAdapter adapter = new PizzaTypeAdapter(pizzas,this);
+        rv.setAdapter(adapter);
     }
     @Override
     public void onBackPressed() {

@@ -26,7 +26,8 @@
         <activity android:name=".PasswordSetActivity" />
         <activity android:name=".PasswordChangeActivity" />
         <activity android:name=".SignUpActivity" />
-        <activity android:name=".OTPVerificationActivity"></activity>
+        <activity android:name=".OTPVerificationActivity" />
+        <activity android:name=".VegPizza"></activity>
     </application>
 
 </manifest>
