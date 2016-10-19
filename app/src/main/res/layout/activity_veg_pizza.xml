@@ -9,7 +9,8 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.example.pizzahub.VegPizza">
+    tools:context="com.example.pizzahub.VegPizza"
+   >
     <ImageView
         android:id="@+id/pizza_photo"
         android:layout_gravity="center"
@@ -21,5 +22,52 @@
         android:id="@+id/pizza_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:orientation="horizontal">
+        <Button
+            android:textColor="#FFFFFF"
+            android:gravity="center"
+            android:id="@+id/button1"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:text="-"
+            android:layout_weight="1"
+            android:textSize="30dp"
+            android:onClick="incdec"
+            android:background="#FF6F00"
+            />
+
+        <Button
+            android:textColor="#FFFFFF"
+            android:background="#FF6F00"
+            android:layout_alignParentRight="true"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="1"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:text="+"
+            android:textSize="30dp"
+            android:id="@+id/button2"
+            android:onClick="incdec"
+            />
+
+
+        <Button
+            android:layout_alignParentRight="true"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="1"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:text="submit"
+            android:textSize="20dp"
+            android:id="@+id/button3"
+            android:onClick="cart"
+            android:background="#FF6F00"
+            android:textColor="#FFFFFF"
+            />
+
+    </LinearLayout>
 
 </LinearLayout>
