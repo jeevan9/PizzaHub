@@ -31,6 +31,11 @@ public class NavigationActivity extends AppCompatActivity
     ImageView im2,im3,im4,im5;
     private List<Pizza> pizzas;
     private RecyclerView rv;
+    /*public static int num_of_items=0;
+    public static int item_type[]=new int[num_of_items];
+    public static int item_type_count[]=new int[num_of_items];
+    */
+
     //    Login l1=new Login();
     //  TextView nav_header_name,nav_header_mailid;
     /* public  NavigationActivity(String name,String mailid)
@@ -38,6 +43,7 @@ public class NavigationActivity extends AppCompatActivity
          this.name=name;
          this.mailid=mailid;
      }*/
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -96,11 +102,6 @@ public class NavigationActivity extends AppCompatActivity
         pizzas.add(new Pizza("Veg Pizza", R.drawable.pizza));
         pizzas.add(new Pizza("Non-Veg Pizza", R.drawable.pizza));
         pizzas.add(new Pizza("Beverages", R.drawable.pizza));
-        pizzas.add(new Pizza("Veg Pizza", R.drawable.pizza));
-        pizzas.add(new Pizza("Non-Veg Pizza", R.drawable.pizza));
-        pizzas.add(new Pizza("Beverages", R.drawable.pizza));
-
-
     }
 
     private void initializeAdapter(){

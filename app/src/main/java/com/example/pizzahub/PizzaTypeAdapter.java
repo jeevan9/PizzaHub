@@ -22,12 +22,15 @@ import java.util.List;
 public class PizzaTypeAdapter extends RecyclerView.Adapter<PizzaTypeAdapter.PersonViewHolder> {
 
     Context ctx;
+    public static int p2=0,q2=0,r2=0;
+    public static ArrayList<Integer> item_count1=new ArrayList<>();
     public static class PersonViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         List<Pizza> pizzass=new ArrayList<Pizza>();
         CardView cv;
         Context ctx;
         TextView pizzaType;
         ImageView pizzaPhoto;
+
 
         PersonViewHolder(View itemView,Context ctx,List<Pizza> pizzass) {
             super(itemView);
@@ -51,6 +54,10 @@ public class PizzaTypeAdapter extends RecyclerView.Adapter<PizzaTypeAdapter.Pers
     }
 
     List<Pizza> pizzas;
+    PizzaTypeAdapter()
+    {
+
+    }
 
     PizzaTypeAdapter(List<Pizza> pizzas, Context ctx){
         this.pizzas = pizzas;
@@ -73,10 +80,12 @@ public class PizzaTypeAdapter extends RecyclerView.Adapter<PizzaTypeAdapter.Pers
     public void onBindViewHolder(PersonViewHolder personViewHolder, int i) {
         personViewHolder.pizzaType.setText(pizzas.get(i).name);
         personViewHolder.pizzaPhoto.setImageResource(pizzas.get(i).imageurl);
+        item_count1.add(i,0);
     }
 
     @Override
-    public int getItemCount() {
+    public int getItemCount(){
         return pizzas.size();
+
     }
 }
