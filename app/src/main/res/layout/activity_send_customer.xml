@@ -24,17 +24,36 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Enter Address"
+        android:backgroundTint="@android:color/holo_green_light"
         />
+        <LinearLayout
+            android:layout_marginTop="30dp"
+            android:layout_width="match_parent"
+            android:layout_height="70dp">
     <Button
+        android:layout_weight="1"
+        android:background="#FF6F00"
+        android:textColor="#FFFFFF"
         android:layout_below="@+id/editText1"
-        android:layout_marginTop="30dp"
-        android:layout_gravity="center_horizontal"
+        android:layout_gravity="center_horizontal|center_vertical"
         android:id="@+id/deliver"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="submit"
         android:onClick="deliverto"
         />
+            <Button
+                android:layout_marginLeft="10dp"
+                android:background="#FF6F00"
+                android:textColor="#FFFFFF"
+                android:layout_weight="1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical|center_horizontal"
+                android:text="Logout"
+                android:onClick="logout"
+                />
+        </LinearLayout>
 
     </LinearLayout>
 </RelativeLayout>

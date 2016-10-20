@@ -23,7 +23,8 @@ import java.util.List;
 public class PizzaTypeAdapter extends RecyclerView.Adapter<PizzaTypeAdapter.PersonViewHolder> {
 
     Context ctx;
-    public static int p2=0,q2=0,r2=0,cp2=0,cq2=0,cr2=0;
+    public static int p2=0,q2=0,r2=0,cp2=0,cq2=0,cr2=0,cps2=0,cqs2=0,crs2=0,cpm2=0,cqm2=0,crm2=0,cpl2=0,cql2=0,crl2=0;
+    public static  String s="";
     public static ArrayList<Integer> item_count1=new ArrayList<>();
 
     public static class PersonViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {

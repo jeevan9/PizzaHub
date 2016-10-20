@@ -6,15 +6,11 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
     <string name="action_settings">Settings</string>
-    <string-array name="trainnumbers">
-        <item>TRAIN NUMBER</item>
-        <item>17230</item>
-        <item>14229</item>
-        <item>15256</item>
-        <item>16248</item>
-        <item>18993</item>
-        <item>12345</item>
-        <item>19092</item>
+    <string-array name="pizzatypes">
+        <item>Select Pizza Size</item>
+        <item>small</item>
+        <item>medium</item>
+        <item>large</item>
     </string-array>
     <string name="title_activity_pizza_hub_location">Map</string>
 </resources>

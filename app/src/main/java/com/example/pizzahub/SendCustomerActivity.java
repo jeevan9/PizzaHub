@@ -1,5 +1,6 @@
 package com.example.pizzahub;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -22,5 +23,10 @@ public class SendCustomerActivity extends AppCompatActivity {
         String s1=t1.getText().toString();
         SendAddress s=new SendAddress(this);
         s.execute(lu.logged_in_user,s1);
+    }
+    public void logout(View v)
+    {
+        Intent i=new Intent(this,MainActivity.class);
+        startActivity(i);
     }
 }
