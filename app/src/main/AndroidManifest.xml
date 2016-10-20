@@ -28,7 +28,8 @@
         <activity android:name=".SignUpActivity" />
         <activity android:name=".OTPVerificationActivity" />
         <activity android:name=".VegPizza" />
-        <activity android:name=".AddressActivity"></activity>
+        <activity android:name=".AddressActivity" />
+        <activity android:name=".SendCustomerActivity"></activity>
     </application>
 
 </manifest>

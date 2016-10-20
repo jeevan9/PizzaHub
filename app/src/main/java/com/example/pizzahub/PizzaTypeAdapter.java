@@ -14,6 +14,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.view.View.OnClickListener;
+import android.widget.Toast;
 
 
 import java.util.ArrayList;
@@ -22,25 +23,30 @@ import java.util.List;
 public class PizzaTypeAdapter extends RecyclerView.Adapter<PizzaTypeAdapter.PersonViewHolder> {
 
     Context ctx;
-    public static int p2=0,q2=0,r2=0;
+    public static int p2=0,q2=0,r2=0,cp2=0,cq2=0,cr2=0;
     public static ArrayList<Integer> item_count1=new ArrayList<>();
+
     public static class PersonViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
-        List<Pizza> pizzass=new ArrayList<Pizza>();
+
+            List<Pizza> pizzass = new ArrayList<Pizza>();
         CardView cv;
         Context ctx;
         TextView pizzaType;
         ImageView pizzaPhoto;
 
 
-        PersonViewHolder(View itemView,Context ctx,List<Pizza> pizzass) {
+        PersonViewHolder(View itemView, Context ctx, List<Pizza> pizzass) {
             super(itemView);
-            this.ctx=ctx;
-            this.pizzass=pizzass;
+            this.ctx = ctx;
+            this.pizzass = pizzass;
             itemView.setOnClickListener(this);
-            cv = (CardView)itemView.findViewById(R.id.card1);
-            pizzaType = (TextView)itemView.findViewById(R.id.textView1);
-            pizzaPhoto = (ImageView)itemView.findViewById(R.id.imageView1);
+            cv = (CardView) itemView.findViewById(R.id.card1);
+            pizzaType = (TextView) itemView.findViewById(R.id.textView1);
+            pizzaPhoto = (ImageView) itemView.findViewById(R.id.imageView1);
+            // pizzaPhoto.setOnClickListener(this);
+            //pizzaType.setOnClickListener(this);
         }
+
 
         @Override
         public void onClick(View v) {
@@ -50,9 +56,11 @@ public class PizzaTypeAdapter extends RecyclerView.Adapter<PizzaTypeAdapter.Pers
             i.putExtra("image_url",pers.imageurl);
             i.putExtra("name",pers.name);
             this.ctx.startActivity(i);
-        }
     }
 
+
+
+    }
     List<Pizza> pizzas;
     PizzaTypeAdapter()
     {
@@ -81,7 +89,31 @@ public class PizzaTypeAdapter extends RecyclerView.Adapter<PizzaTypeAdapter.Pers
         personViewHolder.pizzaType.setText(pizzas.get(i).name);
         personViewHolder.pizzaPhoto.setImageResource(pizzas.get(i).imageurl);
         item_count1.add(i,0);
-    }
+      /*  final int po=i;
+        personViewHolder.pizzaPhoto.setOnClickListener(new View.OnClickListener()
+        {
+
+
+            @Override
+            public void onClick(View v) {
+               Toast.makeText(ctx,po+" th Photo clicked ",Toast.LENGTH_SHORT).show();
+            }
+        });
+        personViewHolder.pizzaType.setOnClickListener(new View.OnClickListener()
+        {
+
+
+            @Override
+            public void onClick(View v) {
+                Intent i=new Intent(ctx,VegPizza.class);
+                i.putExtra("image_url",pizzas.get(po).imageurl);
+                i.putExtra("name",pizzas.get(po).name);
+                ctx.startActivity(i);
+
+                Toast.makeText(ctx,po+" th PizzaType clicked ",Toast.LENGTH_SHORT).show();
+            }
+        });*/
+     }
 
     @Override
     public int getItemCount(){

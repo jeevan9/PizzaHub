@@ -1,7 +1,7 @@
 package com.example.pizzahub;
 
 /**
- * Created by jeevansai on 15/10/2016.
+ * Created by jeevansai on 20/10/2016.
  */
 
 import java.io.BufferedReader;
@@ -12,29 +12,27 @@ import java.net.URL;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+import android.app.PendingIntent;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
+import android.telephony.SmsManager;
 import android.widget.Toast;
 
 import static android.content.Context.MODE_PRIVATE;
 
-public class  Login extends AsyncTask<String,Void,String>{
+public class  SendAddress extends AsyncTask<String,Void,String>{
     private Context context;
     public static String logged_in_user="";
     ProgressDialog loading;
-    public Login(Context cxt)
+    public SendAddress(Context cxt)
     {
         context=cxt;
     }
-    private static final String login_url_a="http://kjeevansai999.ml/pizza_app/login.php";
+    private static final String login_url_a="http://kjeevansai999.ml/pizza_app/address.php";
 
-    public Login()
-    {
-
-    }
     @Override
     protected void onPreExecute() {
         // TODO Auto-generated method stub
@@ -48,8 +46,8 @@ public class  Login extends AsyncTask<String,Void,String>{
         BufferedReader br=null;
         StringBuffer sb;
         String username=arg0[0];
-        String password=arg0[1];
-        String s="?username="+username+"&password="+password;
+        String address=arg0[1];
+        String s="?username="+username+"&address="+address;
         try
         {
 
@@ -81,14 +79,29 @@ public class  Login extends AsyncTask<String,Void,String>{
         // TODO Auto-generated method stub
         super.onPostExecute(result);
         loading.dismiss();
-        Toast.makeText(context,result, Toast.LENGTH_SHORT).show();
-        String res[]=result.split(" ");
-        logged_in_user=res[1];
-        if(res[0].equals("Welcome"))
-        {
-            context.startActivity(new Intent(context, NavigationActivity.class));
-        }
+        String res[] = result.split(" ");
+        //Toast.makeText(context, res[0], Toast.LENGTH_SHORT).show();
 
+        String number = res[1];
+        String order_number = res[2];
+        String messageToSend = "From PizzaHub Your order is successful  and Your Order Number is :" + res[2];
+
+        if (res[0].equals("Order-Successful")) {
+            SmsManager smsOperation = SmsManager.getDefault();
+            PendingIntent sentPI;
+            String sent = "SMS_SENT";
+            sentPI = PendingIntent.getBroadcast(context, 0, new Intent(sent), 0);
+            smsOperation.sendTextMessage(res[1], null, messageToSend, sentPI, null);
+
+            Toast.makeText(context, " Order-Successful SMS Sent Seuccessfully ", Toast.LENGTH_SHORT).show();
+            Intent i = new Intent(context, OTPVerificationActivity.class);
+            //  String res[]=result.split(" ");
+            //logged_in_user=res[1];
+       /* if(result.equals("Order Successful"))
+        {
+            //context.startActivity(new Intent(context, NavigationActivity.class));
+        }*/
+        }
     }
 
 
