@@ -31,7 +31,7 @@ public class VegPizza extends AppCompatActivity {
         b2= (Button) findViewById(R.id.button2);
         i1.setImageResource(getIntent().getIntExtra("image_url", 1));
         t1.setText("Name :" + getIntent().getStringExtra("name"));
-    }
+        }
     /*
     *  pizzas.add(new Pizza("Veg Pizza", R.drawable.pizza));
         pizzas.add(new Pizza("Non-Veg Pizza", R.drawable.pizza));

@@ -20,9 +20,12 @@
     <TextView
         android:layout_marginTop="30dp"
         android:id="@+id/pizza_name"
+        android:textSize="40dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
+
     <LinearLayout
+        android:layout_marginTop="50dp"
         android:layout_width="match_parent"
         android:layout_height="70dp"
         android:orientation="horizontal">
@@ -34,7 +37,7 @@
             android:layout_height="wrap_content"
             android:text="-"
             android:layout_weight="1"
-            android:textSize="30dp"
+            android:textSize="20dp"
             android:onClick="incdec"
             android:background="#FF6F00"
             />
@@ -48,7 +51,7 @@
             android:layout_width="50dp"
             android:layout_height="wrap_content"
             android:text="+"
-            android:textSize="30dp"
+            android:textSize="20dp"
             android:id="@+id/button2"
             android:onClick="incdec"
             />
