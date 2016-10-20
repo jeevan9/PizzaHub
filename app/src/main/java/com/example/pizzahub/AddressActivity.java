@@ -7,12 +7,14 @@ import android.widget.TextView;
 
 public class AddressActivity extends AppCompatActivity {
     TextView t1;
-    VegPizza p1=new VegPizza();
+    VegPizza vp=new VegPizza();
+    PizzaTypeAdapter pa=new PizzaTypeAdapter();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_address);
         t1=(TextView) findViewById(R.id.counter);
-        t1.setText(String.valueOf(p1.c));
+        t1.setText("Veg Pizza :"+pa.p2+"Non-Veg - Pizza: "+pa.q2+" Beverages : "+pa.r2+" Total Items : "+String.valueOf(vp.c));
+
     }
 }

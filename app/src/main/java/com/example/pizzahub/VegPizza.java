@@ -120,10 +120,11 @@ public class VegPizza extends AppCompatActivity {
        Intent i=new Intent(this,AddressActivity.class);
 
         startActivity(i);
-        //i.putExtra("npizza",c);
+
+
         //Toast.makeText(this,"  Veg Pizza: "+String.valueOf(p1.item_count1.get(0))+"  Non-Veg Pizza:  "+String.valueOf(p1.item_count1.get(2))+"  Beverages : "+String.valueOf(p1.item_count1.get(2)),Toast.LENGTH_LONG).show();
 
-        Toast.makeText(this,"  Veg Pizza: "+String.valueOf(p1.p2)+"  Non-Veg Pizza:  "+String.valueOf(p1.q2)+"  Beverages : "+String.valueOf(p1.r2),Toast.LENGTH_LONG).show();
+        //Toast.makeText(this,"  Veg Pizza: "+String.valueOf(p1.p2)+"  Non-Veg Pizza:  "+String.valueOf(p1.q2)+"  Beverages : "+String.valueOf(p1.r2),Toast.LENGTH_LONG).show();
 
 
     }
