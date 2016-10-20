@@ -31,7 +31,7 @@ public class VegPizza extends AppCompatActivity {
         b1= (Button) findViewById(R.id.button1);
         b2= (Button) findViewById(R.id.button2);
         i1.setImageResource(getIntent().getIntExtra("image_url", 1));
-        t1.setText("Name :" + getIntent().getStringExtra("name"));
+        t1.setText("" + getIntent().getStringExtra("name"));
         }
     /*
     *  pizzas.add(new Pizza("Veg Pizza", R.drawable.pizza));
@@ -50,10 +50,10 @@ public class VegPizza extends AppCompatActivity {
         {
             case R.id.button1:
                 c=c-1;
-                if(t1.getText().toString().equals("Name :Veg Pizza"))
+                if(t1.getText().toString().equals("Veg Pizza"))
                 {
 
-                    Toast.makeText(this,"Veg",Toast.LENGTH_SHORT).show();
+                   // Toast.makeText(this,"Veg",Toast.LENGTH_SHORT).show();
                     p1.p2=p1.item_count1.get(0);
                     p1.p2--;
                     p1.cp2=p1.cp2-150;
@@ -61,7 +61,7 @@ public class VegPizza extends AppCompatActivity {
                     total_cost=total_cost-150;
                 }
 
-                if(t1.getText().toString().equals("Name :Non-Veg Pizza"))
+                if(t1.getText().toString().equals("Non-Veg Pizza"))
                 {
 
                     //Toast.makeText(this,"Non-Veg",Toast.LENGTH_SHORT).show();
@@ -73,7 +73,7 @@ public class VegPizza extends AppCompatActivity {
                     total_cost=total_cost-200;
                 }
 
-                if(t1.getText().toString().equals("Name :Beverages"))
+                if(t1.getText().toString().equals("Beverages"))
                 {
 
                     //Toast.makeText(this,"Beverage",Toast.LENGTH_SHORT).show();
@@ -88,7 +88,7 @@ public class VegPizza extends AppCompatActivity {
                 break;
             case R.id.button2:
                 c++;
-                if(t1.getText().toString().equals("Name :Veg Pizza"))
+                if(t1.getText().toString().equals("Veg Pizza"))
                 {
                    // Toast.makeText(this,"Veg",Toast.LENGTH_SHORT).show();
                     p1.p2=p1.item_count1.get(0);
@@ -99,7 +99,7 @@ public class VegPizza extends AppCompatActivity {
                     total_cost=total_cost+150;
                 }
 
-                if(t1.getText().toString().equals("Name :Non-Veg Pizza"))
+                if(t1.getText().toString().equals("Non-Veg Pizza"))
                 {
 
                    // Toast.makeText(this,"Non-Veg",Toast.LENGTH_SHORT).show();
@@ -111,7 +111,7 @@ public class VegPizza extends AppCompatActivity {
                     p1.item_count1.set(1,p1.q2);
                 }
 
-                if(t1.getText().toString().equals("Name :Beverages"))
+                if(t1.getText().toString().equals("Beverages"))
                 {
 
                    // Toast.makeText(this,"Beverage",Toast.LENGTH_SHORT).show();

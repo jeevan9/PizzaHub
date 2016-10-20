@@ -28,9 +28,11 @@ import java.util.List;
 public class NavigationActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
     ImageView im1;
+    Login in=new Login();
     ImageView im2,im3,im4,im5;
     private List<Pizza> pizzas;
     private RecyclerView rv;
+    //TextView t1;
     /*public static int num_of_items=0;
     public static int item_type[]=new int[num_of_items];
     public static int item_type_count[]=new int[num_of_items];
@@ -50,6 +52,8 @@ public class NavigationActivity extends AppCompatActivity
         setContentView(R.layout.activity_navigation);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+      //  t1= (TextView) findViewById(R.id.textView1);
+        //t1.setText(in.logged_in_user);
        /* im1= (ImageView) findViewById(R.id.imageView1);
         im2= (ImageView) findViewById(R.id.imageView2);
         im3= (ImageView) findViewById(R.id.imageView3);
@@ -159,6 +163,11 @@ public class NavigationActivity extends AppCompatActivity
         }
         else if (id == R.id.fp) {
             Intent i=new Intent(this,PasswordSetActivity.class);
+            startActivity(i);
+        }
+
+        else if (id == R.id.gm) {
+            Intent i=new Intent(this,PizzaHubLocation.class);
             startActivity(i);
         }
         else if (id == R.id.logout) {

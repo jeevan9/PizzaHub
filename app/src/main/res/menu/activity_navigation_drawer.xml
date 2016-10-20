@@ -11,7 +11,10 @@
             android:id="@+id/fp"
             android:icon="@drawable/p5"
             android:title="Forgot Password" />
-
+        <item
+            android:id="@+id/gm"
+            android:icon="@drawable/location"
+            android:title="Location" />
         <item
             android:id="@+id/logout"
             android:icon="@drawable/logout"

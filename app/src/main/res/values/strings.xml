@@ -16,4 +16,5 @@
         <item>12345</item>
         <item>19092</item>
     </string-array>
+    <string name="title_activity_pizza_hub_location">Map</string>
 </resources>
