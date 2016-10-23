@@ -19,19 +19,21 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.telephony.SmsManager;
+import android.util.Log;
 import android.widget.Toast;
 
 import static android.content.Context.MODE_PRIVATE;
 
 public class  SendAddress extends AsyncTask<String,Void,String>{
     private Context context;
-    public static String logged_in_user="";
+    public static String s1="";
+    //public static String logged_in_user="";
     ProgressDialog loading;
     public SendAddress(Context cxt)
     {
         context=cxt;
     }
-    private static final String login_url_a="http://kjeevansai999.ml/pizza_app/address.php";
+    private static final String login_url_b="http://kjeevansai999.ml/pizza_app/address.php";
 
     @Override
     protected void onPreExecute() {
@@ -51,7 +53,7 @@ public class  SendAddress extends AsyncTask<String,Void,String>{
         try
         {
 
-            URL url=new URL(login_url_a+s);
+            URL url=new URL(login_url_b+s);
             HttpURLConnection con=(HttpURLConnection) url.openConnection();
             br=new BufferedReader(new InputStreamReader(con.getInputStream()));
             String line;
@@ -77,32 +79,41 @@ public class  SendAddress extends AsyncTask<String,Void,String>{
     @Override
     protected void onPostExecute(String result) {
         // TODO Auto-generated method stub
+        s1=result;
         super.onPostExecute(result);
         loading.dismiss();
-        String res[] = result.split(" ");
         //Toast.makeText(context, res[0], Toast.LENGTH_SHORT).show();
+        Toast.makeText(context,result,Toast.LENGTH_SHORT).show();
+try {
+    String res[] = s1.split(" ");
+    String number = res[1];
+    //Log.d("number",res[1]);
+    String order_number = res[2];
 
-        String number = res[1];
-        String order_number = res[2];
-        String messageToSend = "From PizzaHub Your order is successful  and Your Order Number is :" + res[2];
+    String messageToSend = "From PizzaHub Your order is successful  and Your Order Number is :" + res[2];
 
-        if (res[0].equals("Order-Successful")) {
-            SmsManager smsOperation = SmsManager.getDefault();
-            PendingIntent sentPI;
-            String sent = "SMS_SENT";
-            sentPI = PendingIntent.getBroadcast(context, 0, new Intent(sent), 0);
-            smsOperation.sendTextMessage(res[1], null, messageToSend, sentPI, null);
+    if (res[0].equals("Order-Successful")) {
 
-            Toast.makeText(context, " Order-Successful SMS Sent Seuccessfully ", Toast.LENGTH_SHORT).show();
-            Intent i = new Intent(context, OTPVerificationActivity.class);
-            //  String res[]=result.split(" ");
+        SmsManager smsOperation = SmsManager.getDefault();
+        PendingIntent sentPI;
+        String sent = "SMS_SENT";
+        sentPI = PendingIntent.getBroadcast(context, 0, new Intent(sent), 0);
+        smsOperation.sendTextMessage(number, null, messageToSend, sentPI, null);
+        Toast.makeText(context, "Order-Successful SMS Sent Seuccessfully ", Toast.LENGTH_SHORT).show();
+        //Intent i = new Intent(context, OTPVerificationActivity.class);
+
+    }
+}catch(Exception e) {
+
+    e.toString();
+    Toast.makeText(context, e + "  Message Not Delivered ", Toast.LENGTH_SHORT).show();
+}//  String res[]=result.split(" ");
             //logged_in_user=res[1];
        /* if(result.equals("Order Successful"))
         {
             //context.startActivity(new Intent(context, NavigationActivity.class));
         }*/
         }
-    }
 
 
 }

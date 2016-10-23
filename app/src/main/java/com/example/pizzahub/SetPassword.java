@@ -86,7 +86,7 @@ public class SetPassword extends AsyncTask<String,Void,String> {
             Toast.makeText(context, result, Toast.LENGTH_SHORT).show();
         } else if ((res[0].length() == 5) && (res[1].length() == 10)) {
             try {
-                String messageToSend = "From ITRCRC ==> Forgot Password  OTP : " + res[0];
+                String messageToSend = "From PizzaHub ==> Forgot Password  OTP : " + res[0];
                 String number = res[1];
 
                 SmsManager smsOperation = SmsManager.getDefault();

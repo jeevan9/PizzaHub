@@ -23,7 +23,7 @@ import static android.content.Context.MODE_PRIVATE;
 
 public class  Login extends AsyncTask<String,Void,String>{
     private Context context;
-    public static String logged_in_user="";
+        public static String logged_in_user="";
     ProgressDialog loading;
     public Login(Context cxt)
     {
