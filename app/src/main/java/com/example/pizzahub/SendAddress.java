@@ -27,6 +27,7 @@ import static android.content.Context.MODE_PRIVATE;
 
 public class  SendAddress extends AsyncTask<String,Void,String>{
     private Context context;
+    public static String ordermsg="";
     public static String s1="";
     String username="";
     public static String order_no="";
@@ -202,7 +203,7 @@ try {
     String order_number = res[2];
     String adminno=res[3];
     int j=0;
-    String ordermsg="";
+
 
     for(j=0;j<prodsfinal.size();j++)
     {
