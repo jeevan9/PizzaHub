@@ -84,6 +84,7 @@
         android:id="@+id/signupl"
         android:orientation="horizontal"
         android:layout_below="@+id/l1"
+        android:layout_marginBottom="10dp"
         >
         <Button
             android:layout_width="match_parent"
@@ -95,6 +96,25 @@
             android:background="#FF6F00"
             />
     </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/lad"
+        android:orientation="horizontal"
+        android:layout_below="@+id/signupl"
+        android:layout_marginTop="10dp"
+        >
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#FFFFFF"
+            android:text="Admin Login"
+            android:id="@+id/admin"
+            android:onClick="admin"
+            android:background="#FF6F00"
+            />
+    </LinearLayout>
+
 
     <LinearLayout
         android:layout_width="match_parent"

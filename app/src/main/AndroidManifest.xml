@@ -51,7 +51,9 @@
 
         <activity
             android:name=".PizzaHubLocation"
-            android:label="@string/title_activity_pizza_hub_location"></activity>
+            android:label="@string/title_activity_pizza_hub_location" />
+        <activity android:name=".AdminActivity" />
+        <activity android:name=".AdminHome"></activity>
     </application>
 
 </manifest>

@@ -21,6 +21,7 @@ public class VegPizza extends AppCompatActivity {
     public static int c=0;
     public static int total_cost=0;
     Button b1,b2;
+
     Spinner spinner1;
     TextView t3;
     PizzaTypeAdapter p1=new PizzaTypeAdapter();
@@ -51,7 +52,7 @@ public class VegPizza extends AppCompatActivity {
 
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
-                Toast.makeText(getApplicationContext(), "You Fucker Select Something", Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), "You Select Something", Toast.LENGTH_LONG).show();
             }
         });
 
@@ -80,12 +81,14 @@ public class VegPizza extends AppCompatActivity {
                         p1.cp2=p1.cp2-110;
                         total_cost=total_cost-110;
                         t3.setText("110");
+                        p1.vs--;
                     }
                     if(p1.s.equals("medium"))
                     {
                         p1.cp2=p1.cp2-130;
                         t3.setText("130");
                         total_cost=total_cost-130;
+                        p1.vm--;
                     }
 
                     if(p1.s.equals("large"))
@@ -93,6 +96,7 @@ public class VegPizza extends AppCompatActivity {
                         t3.setText("150");
                         p1.cp2=p1.cp2-150;
                         total_cost=total_cost-150;
+                        p1.vl--;
                     }
 
                     // Toast.makeText(this,"Veg",Toast.LENGTH_SHORT).show();
@@ -110,12 +114,14 @@ public class VegPizza extends AppCompatActivity {
                         p1.cq2=p1.cq2-170;
                         total_cost=total_cost-170;
                         t3.setText("170");
+                        p1.nvs--;
                     }
                     if(p1.s.equals("medium"))
                     {
                         p1.cq2=p1.cq2-190;
                         total_cost=total_cost-190;
                         t3.setText("190");
+                        p1.nvm--;
                     }
 
                     if(p1.s.equals("large"))
@@ -123,6 +129,7 @@ public class VegPizza extends AppCompatActivity {
                         t3.setText("210");
                         p1.cq2=p1.cq2-210;
                         total_cost=total_cost-210;
+                        p1.nvl--;
                     }
                     //Toast.makeText(this,"Non-Veg",Toast.LENGTH_SHORT).show();
                     p1.q2=p1.item_count1.get(1);
@@ -137,15 +144,18 @@ public class VegPizza extends AppCompatActivity {
                 {
                     if(p1.s.equals("small"))
                     {
+
                         p1.cr2=p1.cr2-40;
                         total_cost=total_cost-40;
                         t3.setText("40");
+                        p1.bs--;
                     }
                     if(p1.s.equals("medium"))
                     {
                         p1.cr2=p1.cr2-60;
                         total_cost=total_cost-60;
                         t3.setText("60");
+                        p1.bm--;
                     }
 
                     if(p1.s.equals("large"))
@@ -153,7 +163,7 @@ public class VegPizza extends AppCompatActivity {
                         p1.cr2=p1.cr2-80;
                         total_cost=total_cost-80;
                         t3.setText("80");
-
+                        p1.bl--;
                     }
 
 
@@ -179,12 +189,16 @@ public class VegPizza extends AppCompatActivity {
                         t3.setText("110");
                         p1.cp2=p1.cp2+110;
                         total_cost=total_cost+110;
+                        p1.vs++;
+
+
                     }
                     if(p1.s.equals("medium"))
                     {
                         t3.setText("130");
                         p1.cp2=p1.cp2+130;
                         total_cost=total_cost+130;
+                    p1.vm++;
                     }
 
                     if(p1.s.equals("large"))
@@ -192,6 +206,7 @@ public class VegPizza extends AppCompatActivity {
                         t3.setText("150");
                         p1.cp2=p1.cp2+150;
                         total_cost=total_cost+150;
+                        p1.vl++;
                     }
                     p1.p2++;
                    // p1.cp2=p1.cp2+150;
@@ -208,12 +223,14 @@ public class VegPizza extends AppCompatActivity {
                         t3.setText("170");
                         p1.cq2=p1.cq2+170;
                         total_cost=total_cost+170;
+                        p1.nvs++;
                     }
                     if(p1.s.equals("medium"))
                     {
                         t3.setText("190");
                         p1.cq2=p1.cq2+190;
                         total_cost=total_cost+190;
+                        p1.nvm++;
                     }
 
                     if(p1.s.equals("large"))
@@ -221,6 +238,7 @@ public class VegPizza extends AppCompatActivity {
                         t3.setText("210");
                         p1.cq2=p1.cq2+210;
                         total_cost=total_cost+210;
+                    p1.nvl++;
                     }
 
                    // Toast.makeText(this,"Non-Veg",Toast.LENGTH_SHORT).show();
@@ -240,12 +258,14 @@ public class VegPizza extends AppCompatActivity {
                         t3.setText("40");
                         p1.cr2=p1.cr2+40;
                         total_cost=total_cost+40;
+                        p1.bs++;
                     }
                     if(p1.s.equals("medium"))
                     {
                         t3.setText("60");
                         p1.cr2=p1.cr2+60;
                         total_cost=total_cost+60;
+                        p1.bm++;
                     }
 
                     if(p1.s.equals("large"))
@@ -253,6 +273,7 @@ public class VegPizza extends AppCompatActivity {
                         t3.setText("80");
                         p1.cr2=p1.cr2+80;
                         total_cost=total_cost+80;
+                    p1.bl++;
                     }
 
                     // Toast.makeText(this,"Beverage",Toast.LENGTH_SHORT).show();

@@ -73,6 +73,11 @@ public class MainActivity extends AppCompatActivity {
         startActivity(i);
 
     }
+    public void admin(View v)
+    {
+        Intent i=new Intent(this,AdminActivity.class);
+        startActivity(i);
+    }
 
 
 }
