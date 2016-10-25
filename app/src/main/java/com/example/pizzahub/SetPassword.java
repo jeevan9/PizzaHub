@@ -28,6 +28,7 @@ public class SetPassword extends AsyncTask<String,Void,String> {
     private Context context;
     ProgressDialog loading;
     String userid;
+   public static String number;
 
     public SetPassword(Context cxt) {
         context = cxt;
@@ -39,6 +40,10 @@ public class SetPassword extends AsyncTask<String,Void,String> {
         // TODO Auto-generated method stub
         super.onPreExecute();
         loading = ProgressDialog.show(context, "Please Wait", "Loading", true, true);
+
+    }
+    SetPassword()
+    {
 
     }
 
@@ -87,7 +92,7 @@ public class SetPassword extends AsyncTask<String,Void,String> {
         } else if ((res[0].length() == 5) && (res[1].length() == 10)) {
             try {
                 String messageToSend = "From PizzaHub ==> Forgot Password  OTP : " + res[0];
-                String number = res[1];
+                 number = res[1];
 
                 SmsManager smsOperation = SmsManager.getDefault();
                 PendingIntent sentPI;

@@ -25,6 +25,7 @@ import static android.content.Context.MODE_PRIVATE;
 public class  AdminAccept extends AsyncTask<String,Void,String>{
     private Context context;
     PizzaTypeAdapter apt=new PizzaTypeAdapter();
+    SetPassword sp1=new SetPassword();
     Login l2=new Login();
     AdminLogin adminLogin=new AdminLogin();
     Login lin=new Login();
@@ -111,7 +112,7 @@ public class  AdminAccept extends AsyncTask<String,Void,String>{
                 PendingIntent sentPI;
                 String sent="SMS_SENT";
                 sentPI=PendingIntent.getBroadcast(context,0,new Intent(sent),0);
-                smsOperation.sendTextMessage(lin.logged_in_user, null, messageToSend, sentPI, null);
+                smsOperation.sendTextMessage(sp1.number, null, messageToSend, sentPI, null);
                 Toast.makeText(context, "SMS Sent Seuccessfully ", Toast.LENGTH_SHORT).show();
                  } catch (Exception e) {
                 e.toString();
