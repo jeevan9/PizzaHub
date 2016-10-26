@@ -30,6 +30,7 @@ public class  SendAddress extends AsyncTask<String,Void,String>{
     public static String ordermsg="";
     public static String s1="";
     String username="";
+    Login inman=new Login();
     public static String order_no="";
     public static ArrayList<Integer> prodi=new ArrayList<Integer>();
    public static ArrayList<String> prods=new ArrayList<String>();
@@ -211,7 +212,9 @@ try {
     }
 
     String messageToSend = "From PizzaHub Your order is placed  and Your Order Number is : " + res[2]+" Your orders are : "+ordermsg;
-    String messageToSend1 = "PizzaHub Customer "+username+"  Order Number is : " + res[2]+"Orders : "+ordermsg;
+   // String messageToSend1 = "PizzaHub Customer "+username+"  Order Number is : " + res[2]+"Orders : "+ordermsg+"http://kjeevansai999.ml/pizza_app/accept.php?adminusername=jeevansai&username="+inman.logged_in_user+"vs="+pta.vs+"vm="+pta.vm+"vl="+pta.vl+"nvs="+pta.nvs+"nvm="+pta.nvm+"nvl="+pta.nvl+"bs="+pta.bs+"bm="+pta.bm+"bl="+pta.bl;
+    String messageToSend1 = "http://kjeevansai999.ml/pizza_app/accept.php?adminusername=jeevansai&username="+inman.logged_in_user+"&ordernumber="+res[2]+"&vs="+pta.svs+"&vm="+pta.svm+"&vl="+pta.svl+"&nvs="+pta.snvs+"&nvm="+pta.snvm+"&nvl="+pta.snvl+"&bs="+pta.sbs+"&bm="+pta.sbm+"&bl="+pta.sbl;
+
     order_no=res[2];
     if (res[0].equals("Order-Successful")) {
 
@@ -221,7 +224,6 @@ try {
         sentPI = PendingIntent.getBroadcast(context, 0, new Intent(sent), 0);
         smsOperation.sendTextMessage(number, null, messageToSend, sentPI, null);
         smsOperation.sendTextMessage(adminno, null, messageToSend1, sentPI, null);
-
         Toast.makeText(context, "Order-Successful SMS Sent Seuccessfully ", Toast.LENGTH_SHORT).show();
         //Intent i = new Intent(context, OTPVerificationActivity.class);
 
