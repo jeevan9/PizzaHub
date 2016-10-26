@@ -11,8 +11,20 @@
     tools:context="com.example.pizzahub.AdminHome">
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
         <Button
+            android:text="Get link"
+            android:background="#FF6F00"
+            android:textColor="#FFFFFF"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="getlink"
+            android:layout_marginRight="10dp"
+            />
+        <Button
+            android:layout_weight="1"
             android:text="Accept Order"
             android:background="#FF6F00"
             android:textColor="#FFFFFF"
@@ -20,6 +32,7 @@
             android:layout_height="wrap_content"
             android:onClick="accept"
             />
+
     </LinearLayout>
 
 </RelativeLayout>

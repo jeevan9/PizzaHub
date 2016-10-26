@@ -11,9 +11,16 @@ public class AdminHome extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_home);
     }
+    public void getlink(View v)
+    {
+        GetLinks gl=new GetLinks(this);
+        gl.execute();
+     }
+
     public void accept(View v)
     {
         AdminAccept a=new AdminAccept(this);
         a.execute();
+
     }
 }

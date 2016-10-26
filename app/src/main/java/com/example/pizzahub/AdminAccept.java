@@ -28,6 +28,7 @@ public class  AdminAccept extends AsyncTask<String,Void,String>{
     SetPassword sp1=new SetPassword();
     Login l2=new Login();
     AdminLogin adminLogin=new AdminLogin();
+    GetLinks gll=new GetLinks();
     Login lin=new Login();
 
     SendAddress saacc=new SendAddress();
@@ -74,7 +75,7 @@ public class  AdminAccept extends AsyncTask<String,Void,String>{
         try
         {
 
-            URL url=new URL(login_url_d+orderaccept);
+            URL url=new URL(gll.userlink);
             HttpURLConnection con=(HttpURLConnection) url.openConnection();
             br=new BufferedReader(new InputStreamReader(con.getInputStream()));
             String line;
@@ -102,19 +103,20 @@ public class  AdminAccept extends AsyncTask<String,Void,String>{
         // TODO Auto-generated method stub
         super.onPostExecute(result);
         loading.dismiss();
-        Toast.makeText(context,"Your order number : "+saacc.order_no+" "+result, Toast.LENGTH_SHORT).show();
-       // logged_in_user=res[1];
-        if(result.equals("Your order is successful"))
+        String res[]=result.split(" ");
+        if(res[0].equals("Your"))
         {
+
             try {
-                String messageToSend="From PizzaHub : Your order is successful and your order number is  "+saacc.order_no+" and Your orders are "+saacc.ordermsg;
+                String messageToSend="From PizzaHub : Your order is successful and your order number is  "+res[2]+" and Your orders are "+saacc.ordermsg;
                 SmsManager smsOperation = SmsManager.getDefault();
                 PendingIntent sentPI;
                 String sent="SMS_SENT";
                 sentPI=PendingIntent.getBroadcast(context,0,new Intent(sent),0);
-                smsOperation.sendTextMessage(sp1.number, null, messageToSend, sentPI, null);
+                smsOperation.sendTextMessage(res[1], null, messageToSend, sentPI, null);
                 Toast.makeText(context, "SMS Sent Seuccessfully ", Toast.LENGTH_SHORT).show();
-                 } catch (Exception e) {
+                 }
+            catch (Exception e) {
                 e.toString();
                 Toast.makeText(context, e + "  Message Not Delivered ", Toast.LENGTH_SHORT).show();
             }

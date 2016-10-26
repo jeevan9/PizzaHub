@@ -70,6 +70,8 @@ public class  SendAddress extends AsyncTask<String,Void,String>{
         pta.sbs=String.valueOf(pta.bs);
         pta.sbm=String.valueOf(pta.bm);
         pta.sbl=String.valueOf(pta.bl);
+       // String ol = "http://kjeevansai999.ml/pizza_app/accept.php?adminusername=jeevansai&username="+inman.logged_in_user+"&vs="+pta.svs+"&vm="+pta.svm+"&vl="+pta.svl+"&nvs="+pta.snvs+"&nvm="+pta.snvm+"&nvl="+pta.snvl+"&bs="+pta.sbs+"&bm="+pta.sbm+"&bl="+pta.sbl;
+
         String s="?username="+username+"&address="+address+"&vs="+pta.svs+"&vm="+pta.svm+"&vl="+pta.svl+"&nvs="+pta.snvs+"&nvm="+pta.snvm+"&nvl="+pta.snvl+"&bs="+pta.sbs+"&bm="+pta.sbm+"&bl="+pta.sbl;
 
         int i=0;
@@ -212,8 +214,8 @@ try {
     }
 
     String messageToSend = "From PizzaHub Your order is placed  and Your Order Number is : " + res[2]+" Your orders are : "+ordermsg;
-   // String messageToSend1 = "PizzaHub Customer "+username+"  Order Number is : " + res[2]+"Orders : "+ordermsg+"http://kjeevansai999.ml/pizza_app/accept.php?adminusername=jeevansai&username="+inman.logged_in_user+"vs="+pta.vs+"vm="+pta.vm+"vl="+pta.vl+"nvs="+pta.nvs+"nvm="+pta.nvm+"nvl="+pta.nvl+"bs="+pta.bs+"bm="+pta.bm+"bl="+pta.bl;
-    String messageToSend1 = "http://kjeevansai999.ml/pizza_app/accept.php?adminusername=jeevansai&username="+inman.logged_in_user+"&ordernumber="+res[2]+"&vs="+pta.svs+"&vm="+pta.svm+"&vl="+pta.svl+"&nvs="+pta.snvs+"&nvm="+pta.snvm+"&nvl="+pta.snvl+"&bs="+pta.sbs+"&bm="+pta.sbm+"&bl="+pta.sbl;
+   String messageToSend1 = "PizzaHub Customer "+username+"  Order Number is : " + res[2]+"Orders : "+ordermsg;
+    //String messageToSend1 = "http://kjeevansai999.ml/pizza_app/accept.php?adminusername=jeevansai&username="+inman.logged_in_user+"&ordernumber="+res[2]+"&vs="+pta.svs+"&vm="+pta.svm+"&vl="+pta.svl+"&nvs="+pta.snvs+"&nvm="+pta.snvm+"&nvl="+pta.snvl+"&bs="+pta.sbs+"&bm="+pta.sbm+"&bl="+pta.sbl;
 
     order_no=res[2];
     if (res[0].equals("Order-Successful")) {
