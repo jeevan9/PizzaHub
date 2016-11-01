@@ -67,15 +67,19 @@ public class  AdminAccept extends AsyncTask<String,Void,String>{
         String ss6[]=saacc.prodsfinalstr.get(5).split("-");
         String ss7[]=saacc.prodsfinalstr.get(6).split("-");
         String ss8[]=saacc.prodsfinalstr.get(7).split("-");*/
-        String orderaccept="?adminusername="+adminLogin.admin_user+"&username="+username;
+
+        String un=arg0[0];
+        String ono=arg0[1];
+        String oa="?username="+un+"&ordernumber="+ono;
+       /* String orderaccept="?adminusername="+adminLogin.admin_user+"&username="+username;
         for(i=0;i<saacc.prodi.size();i++)
         {
             orderaccept+="&"+saacc.prods.get(i)+"="+saacc.prodi.get(i);
-        }
+        }*/
         try
         {
 
-            URL url=new URL(gll.userlink);
+            URL url=new URL(login_url_d+oa);
             HttpURLConnection con=(HttpURLConnection) url.openConnection();
             br=new BufferedReader(new InputStreamReader(con.getInputStream()));
             String line;
@@ -108,13 +112,13 @@ public class  AdminAccept extends AsyncTask<String,Void,String>{
         {
 
             try {
-                String messageToSend="From PizzaHub : Your order is successful and your order number is  "+res[2]+" and Your orders are "+saacc.ordermsg;
+                String messageToSend="From PizzaHub : Your order is successful and your order number is  "+res[5];
                 SmsManager smsOperation = SmsManager.getDefault();
                 PendingIntent sentPI;
                 String sent="SMS_SENT";
                 sentPI=PendingIntent.getBroadcast(context,0,new Intent(sent),0);
-                smsOperation.sendTextMessage(res[1], null, messageToSend, sentPI, null);
-                Toast.makeText(context, "SMS Sent Seuccessfully ", Toast.LENGTH_SHORT).show();
+                smsOperation.sendTextMessage(res[4], null, messageToSend, sentPI, null);
+                Toast.makeText(context, "Order Accepted and SMS Sent Seuccessfully ", Toast.LENGTH_SHORT).show();
                  }
             catch (Exception e) {
                 e.toString();
