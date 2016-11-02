@@ -90,7 +90,7 @@ public class  AdminLogin extends AsyncTask<String,Void,String>{
         // TODO Auto-generated method stub
         super.onPostExecute(result);
         loading.dismiss();
-        Toast.makeText(context,result, Toast.LENGTH_SHORT).show();
+        //Toast.makeText(context,result, Toast.LENGTH_SHORT).show();
        // logged_in_user=res[1];
         if(result.equals("Invalid Credentials"))
         {
@@ -104,7 +104,7 @@ public class  AdminLogin extends AsyncTask<String,Void,String>{
        }
         else
         {
-            count1=0;
+           // count1=0;
             try {
             JSONObject jo = new JSONObject(result);
             JSONArray ja = jo.getJSONArray("server_response");

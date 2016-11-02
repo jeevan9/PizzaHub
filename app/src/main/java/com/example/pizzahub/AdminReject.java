@@ -34,7 +34,7 @@ public class  AdminReject extends AsyncTask<String,Void,String>{
     {
         context=cxt;
     }
-    private static final String login_url_d="http://kjeevansai999.ml/pizza_app/reject.php";
+    private static final String login_url_f="http://kjeevansai999.ml/pizza_app/reject.php";
 
     public AdminReject()
     {
@@ -74,7 +74,7 @@ public class  AdminReject extends AsyncTask<String,Void,String>{
         try
         {
 
-            URL url=new URL(login_url_d+oa);
+            URL url=new URL(login_url_f+oa);
             HttpURLConnection con=(HttpURLConnection) url.openConnection();
             br=new BufferedReader(new InputStreamReader(con.getInputStream()));
             String line;
