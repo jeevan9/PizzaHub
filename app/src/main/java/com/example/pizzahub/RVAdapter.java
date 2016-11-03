@@ -69,7 +69,7 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.PersonViewHolder> 
     public void delete_accept(int position)
     {
         persons.remove(position);
-
+        AdminLogin.uo.remove(position);
         notifyItemRemoved(position);
         notifyItemRangeChanged(position,getItemCount());
 
@@ -77,6 +77,8 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.PersonViewHolder> 
     public void delete_reject(int position)
     {
         persons.remove(position);
+
+        AdminLogin.uo.remove(position);
         notifyItemRemoved(position);
         notifyItemRangeChanged(position,getItemCount());
 
@@ -100,8 +102,9 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.PersonViewHolder> 
                 String res[]=result.split(" ");
                 AdminAccept aa=new AdminAccept(ctx);
                 aa.execute(res[0],res[1]);
+                Toast.makeText(ctx,"Accept Clicked at pos : "+i+" Username : "+res[0]+"Ordernumber "+res[1],Toast.LENGTH_SHORT).show();
                 delete_accept(i);
-                //Toast.makeText(ctx,"Accept Clicked at pos : "+i,Toast.LENGTH_SHORT).show();
+               // Toast.makeText(ctx,"Accept Clicked at pos : "+i,Toast.LENGTH_SHORT).show();
             }
         });
         personViewHolder.reject.setOnClickListener(new OnClickListener() {
@@ -111,6 +114,7 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.PersonViewHolder> 
                 String res[]=result.split(" ");
                 AdminReject aa=new AdminReject(ctx);
                 aa.execute(res[0],res[1]);
+                Toast.makeText(ctx,"Accept Clicked at pos : "+i+" Username : "+res[0]+"Ordernumber "+res[1],Toast.LENGTH_SHORT).show();
                 delete_reject(i);
                 // Toast.makeText(ctx,"Reject Clicked at pos "+i,Toast.LENGTH_SHORT).show();
 

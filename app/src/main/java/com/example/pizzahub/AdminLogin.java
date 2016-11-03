@@ -166,9 +166,17 @@ public class  AdminLogin extends AsyncTask<String,Void,String>{
 
                     count1++;
                 }
-
+                String opr="";
+            for (int j=0;j<uo.size();j++)
+            {
+                opr=opr+" j =  "+j +uo.get(j);
+            }
+                Toast.makeText(context,opr,Toast.LENGTH_SHORT).show();
             context.startActivity(new Intent(context, AdminHome.class));
-        } catch (Exception e) {
+
+            }
+
+            catch (Exception e) {
                 Toast.makeText(context, e.toString(), Toast.LENGTH_SHORT).show();
             }
         }
